@@ -45,7 +45,7 @@
             "Link": "https://developers.docusign.com/docs/click-api/sdks/"
         }
     },
-    "SecurityNotice": "<strong>Security notice:</strong> Single-page applications, because they execute entirely within the user's web browser, cannot store a client secret and must use <a href='https://developers.docusign.com/platform/auth/implicit/' target='_blank' rel='noopener noreferrer'>Implicit Grant</a> authentication. For more guidance on securing your apps, see <a href='https://developers.docusign.com/platform/single-page-applications-cors/' target='_blank' rel='noopener noreferrer'>Single-page applications and CORS</a>.",
+    "SecurityNotice": "<p><strong>Security notice:</strong> Single-page applications, because they execute entirely within the user's web browser, cannot store a client secret and must use <a href='https://developers.docusign.com/platform/auth/implicit/' target='_blank' rel='noopener noreferrer'>Implicit Grant</a> authentication. For more guidance on securing your apps, see <a href='https://developers.docusign.com/platform/single-page-applications-cors/' target='_blank' rel='noopener noreferrer'>Single-page applications and CORS</a>.</p>",
     "Modal": {
         "Title": "Waiting for login",
         "Description": "You must log in with your DocuSign developer account to use this sample app."
