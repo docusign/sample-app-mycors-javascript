@@ -2,7 +2,7 @@
 
 ## Introduction
 
-MyCORS is a DocuSign sample application that shows how the DocuSign CORS API can be used to construct Single Page Applications (SPA) without custom API creation. The SPA is created using React.js. You can find a live instance running at [https://mycors.sampleapps.docusign.com/](https://mycors.sampleapps.docusign.com/).
+MyCORS is a DocuSign sample application that shows how to construct Single Page Applications (SPAs) that leverage DocuSign support for Cross-Origin Resource Sharing (CORS). This sample application is created using React.js. You can find a live instance running at [https://mycors.sampleapps.docusign.com/](https://mycors.sampleapps.docusign.com/).
 
 MyCORS demonstrates the following:
 
@@ -62,7 +62,7 @@ Create a copy of the file .env.example, save the copy as .env, and fill in the d
    ```
    docker build -t docusign_sample_mycors .
    ```
-4. Start the application (run the docker container) with the following command in the terminal:
+4. Start the application (run the Docker container) with the following command in the terminal:
 
    ```
    docker run -p 80:80 -d docusign_sample_mycors
