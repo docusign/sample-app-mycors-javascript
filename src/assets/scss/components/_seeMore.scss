@@ -1,0 +1,36 @@
+.bs-holder {
+  max-width: 460px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  color: #020a15;
+  padding: 24px;
+}
+@media (max-width: 768px) {
+  .bs-holder {
+    max-width: 540px;
+  }
+}
+.bs-link {
+  color: #020a15;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+#upCaret,
+#downCaret {
+  width: 12px;
+  height: 7px;
+  margin-left: 10px;
+}
+
+.bs-holder ul {
+  padding-left: 0;
+  text-align: left;
+  color: #020a15;
+}
+.bs-holder li {
+  list-style: none;
+  background: url("../../img/check.svg") no-repeat 0 6px;
+  padding-left: 15px;
+  margin-bottom: 8px;
+}

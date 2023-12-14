@@ -1,0 +1,54 @@
+{
+    "Header1": "Welcome to MyCORS",
+    "Header2": "<div><span>See how DocuSign API support for Cross-Origin Resource Sharing (CORS) enables developers to build <a href='#security-notice'>single-page applications</a> that let users sign documents directly in a browser window.</span></div>",
+    "Footer1": "DocuSign: It's time to agree better",
+    "Footer2": "<div><span>DocuSign helps organizations connect and automate how they prepare, sign, act on, and manage agreements.</span></div>",
+    "LogInButton": "Log in",
+    "CreateAccountButton": {
+        "Name": "Create Account",
+        "Link": "https://go.docusign.com/o/sandbox/"
+    },
+    "Card1": {
+        "Title": "Send Insurance Card",
+        "Description": "This scenario enables an insurance company employee to select a customer and send them an insurance card, which the customer can sign to acknowledge receipt.",
+        "Button": "Get Started",
+        "FeaturesTitle": "DocuSign features:",
+        "FeaturesList": "<li>Remote signing</li><li>Data entry tabs</li><li>Anchor positioning</li><li>Templates</li><li>Document generation</li>"
+    },
+    "Card2": {
+        "Title": "Know Your Customer",
+        "Description": "For the finance industry: this scenario walks users through a wizard that enables them to take a photo and upload it for identification; they are then prompted to sign and verify the photo.",
+        "Button": "Get Started",
+        "FeaturesTitle": "DocuSign features:",
+        "FeaturesList": "<li>Embedded signing</li><li>Data entry tabs</li><li>Anchor positioning</li>"
+    },
+    "LearnMoreButton": {
+        "Name": "Learn more",
+        "Link": "https://developers.docusign.com/"
+    },
+    "Resources": {
+        "Title": "Resources",
+        "First": {
+            "Name": "eSignature REST API",
+            "Link": "https://developers.docusign.com/docs/esign-rest-api/"
+        },
+        "Second": {
+            "Name": "Node.js eSignature SDK",
+            "Link": "https://developers.docusign.com/docs/esign-rest-api/sdks/node/"
+        },
+        "Third": {
+            "Name": "Click API",
+            "Link": "https://developers.docusign.com/docs/click-api/"
+        },
+        "Fourth": {
+            "Name": "Click SDKs",
+            "Link": "https://developers.docusign.com/docs/click-api/sdks/"
+        }
+    },
+    "SecurityNotice": "<strong>Security notice:</strong> Single-page applications, because they execute entirely within the user's web browser, cannot store a client secret and must use <a href='https://developers.docusign.com/platform/auth/implicit/' target='_blank' rel='noopener noreferrer'>Implicit Grant</a> authentication. For more guidance on securing your apps, see <a href='https://developers.docusign.com/platform/single-page-applications-cors/' target='_blank' rel='noopener noreferrer'>Single-page applications and CORS</a>.",
+    "Modal": {
+        "Title": "Waiting for login",
+        "Description": "You must log in with your DocuSign developer account to use this sample app."
+    },
+    "LogoutModalMessage": "You are now logged out of MyCORS. Be sure to log out of your DocuSign developer account as well."
+}

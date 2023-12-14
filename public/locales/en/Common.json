@@ -1,0 +1,11 @@
+{
+    "ApplicationName": "MyCORS",
+    "GitHub": {
+        "Name": "GitHub Source",
+        "Link": "https://github.com/docusign/sample-app-mycors-javascript"
+    },
+    "Copyright": "© 2023 DocuSign Inc.",
+    "UnsavedChangesMessage": "There are some unsaved changes on the page. Are you sure you want to leave?",
+    "Logout": "Log Out",
+    "Close": "Close"
+}

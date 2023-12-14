@@ -1,0 +1,50 @@
+.generic-container {
+  margin-bottom: 16px;
+  margin-top: 36px;
+
+  width: 100px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loader {
+  height: 100%;
+  width: 100%;
+
+  position: relative;
+
+  border-radius: 100%;
+}
+
+.inner-circle {
+  width: 80%;
+  height: 80%;
+
+  position: absolute;
+
+  left: 10%;
+  top: 10%;
+
+  background-color: #fff;
+
+  margin: 0 auto;
+
+  border-radius: 100%;
+}
+
+.gradient-loader {
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    rgba(196, 196, 196, 0) 0deg,
+    #0057ff 360deg
+  );
+
+  animation: rotateAnimation 1s infinite linear;
+}
+
+@keyframes rotateAnimation {
+  100% {
+    transform: rotate(360deg);
+  }
+}

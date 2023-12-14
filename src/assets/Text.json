@@ -1,0 +1,65 @@
+{
+    "login": {
+        "loginButton": "Login here"
+    },
+    "logout": {
+        "logoutButton": "Logout"
+    },
+    "errorText": {
+        "unknownError": "Unknown API response error, response did not return with a status code of 200.",
+        "notFound": "404: Page not found."
+    },
+    "requestSigningSucess": {
+        "title": "Successfully sent request",
+        "description": "Your request for signing a document has been sent to the specified email."
+    },
+    "signingComplete": {
+        "title": "Signing Complete",
+        "description": "You have signed the document."
+    },
+    "backLink": "Back to Home",
+    "formLabels":   {
+        "currentAccountOwner": "Current account owner",
+        "firstName": "First name:",
+        "lastName": "Last name:",
+        "fullName": "Name",
+        "newAccountOwner": "New account owner",
+        "email": "Email:",
+        "countryCode": "Country code",
+        "phoneNumber": "Phone number",
+        "phonePlaceholder": "000-000-0000",
+        "requiredFieldError": "This field is required.",
+        "inputTooLongError": "Your input is too long.",
+        "invalidEmailFormatError": "Invalid email format.",
+        "invalidCountryCodeError": "Invalid country code.",
+        "invalidPhoneNumberError": "Invalid phone number.",
+        "buttonName": "Submit"
+    },
+    "titles": {
+        "loginTitle": "Login",
+        "assumptionTitle": "Assumption of Liability",
+        "purchaseTitle": "Purchase New Device",
+        "serviceChangeTitle": "Multi-Line Service Change Request for Business Accounts",
+        "homeTitle": "Home"
+    },
+    "purchaseDevice": {
+        "phoneA": "Phone A",
+        "phoneB": "Phone B",
+        "phoneC": "Phone C",
+        "phoneD": "Phone D",
+        "selectPhone": "Select a phone:",
+        "insuranceLabel": "Would you like to include device insurance at $5/month for 2 years?",
+        "downPayment": "Enter the down payment in USD:",
+        "yes": "Yes",
+        "no": "No",
+        "scheduleSend": "Enter the time delay in minutes for sending the second envelope:"
+    },
+    "serviceChange": {
+        "formTitle": "Input 3 or more emails to bulk send an envelope to. You may use the same email for demo purposes if you do not have at least 3 different emails to use.",
+        "signerOne": "First signer",
+        "signerTwo": "Second signer",
+        "signerThree": "Third signer",
+        "signerFour": "Fourth signer",
+        "signerFive": "Fifth signer"
+    }
+}

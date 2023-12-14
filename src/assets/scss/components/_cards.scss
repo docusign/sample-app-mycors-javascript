@@ -1,0 +1,118 @@
+.card-1,
+.card-2 {
+  margin: 0 10px;
+}
+
+.cards-container {
+  max-width: 100%;
+}
+
+.h-card {
+  max-width: 413px;
+  margin-bottom: 20px;
+
+  background: #ffffff;
+  box-shadow: 0 16px 30px rgba(24, 24, 24, 0.1);
+  border-radius: 8px;
+  padding: 40px;
+}
+.h-card:hover {
+  filter: drop-shadow(0 9px 44px rgba(51, 76, 207, 0.13));
+}
+.h-card:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(51, 76, 207, 0.13);
+}
+
+.h-card-img {
+  width: auto;
+  height: auto;
+}
+
+.h-card-title {
+  margin-top: 28px;
+  max-width: 333px;
+  margin-bottom: 12px;
+  min-height: 48px;
+}
+
+.h-card-description {
+  text-align: center;
+  margin-bottom: 28px;
+  color: #353b44;
+}
+
+.h-card-features {
+  margin-top: 40px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.h-card ul {
+  display: inline-block;
+  padding-left: 0;
+  text-align: left;
+  color: #020a15;
+}
+.h-card li {
+  list-style: none;
+  background: url("../../img/check.svg") no-repeat 0 6px;
+  padding-left: 15px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  .h-card {
+    max-width: 344px;
+    padding: 40px 24px;
+  }
+
+  .h-card-title {
+    max-width: 296px;
+  }
+
+  .card-1 {
+    margin-left: 10px;
+    margin-right: 0;
+  }
+  .card-2 {
+    margin-left: 16px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .h-card {
+    max-width: 328px;
+    padding: 40px 16px;
+  }
+
+  .h-card-title {
+    max-width: 296px;
+    min-height: 24px;
+  }
+
+  .card-1 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card-2 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .h-card-features {
+    margin-top: 28px;
+    margin-bottom: 12px;
+    padding: 0 16px;
+  }
+  .h-card ul {
+    padding: 0 16px;
+  }
+}

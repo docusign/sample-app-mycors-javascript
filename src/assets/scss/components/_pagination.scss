@@ -1,0 +1,33 @@
+.pagination {
+  margin-bottom: 4px;
+
+  .page-link {
+    background: transparent;
+    color: #020a15;
+    border: 2px solid transparent;
+    line-height: 140%;
+
+    &:hover {
+      border-radius: 4px;
+      background: transparent;
+      color: #0057ff;
+    }
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .page-item.active {
+    .page-link {
+      border-radius: 4px;
+      color: #0057ff;
+      border: 2px solid #0057ff;
+      background: transparent;
+    }
+  }
+
+  .page-item:first-child .page-link,
+  .page-item:last-child .page-link {
+    border-radius: 4px;
+  }
+}

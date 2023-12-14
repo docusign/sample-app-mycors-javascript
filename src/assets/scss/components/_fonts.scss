@@ -1,0 +1,83 @@
+h1 {
+  font-size: 54px;
+  line-height: 120%;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 120%;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 120%;
+  font-weight: 700;
+}
+
+button {
+  font-size: 14px;
+  line-height: 100%;
+  font-weight: 700;
+}
+
+.sub-title {
+  font-size: 18px;
+  line-height: 140%;
+  font-weight: 500;
+}
+
+.body-l {
+  font-size: 16px;
+  line-height: 140%;
+  font-weight: 400;
+}
+
+.body-l-bold {
+  font-size: 16px;
+  line-height: 140%;
+  font-weight: 700;
+}
+
+.body-m {
+  font-size: 14px;
+  line-height: 140%;
+  font-weight: 400;
+}
+
+.body-m-bold {
+  font-size: 14px;
+  line-height: 140%;
+  font-weight: 700;
+}
+
+.body-s {
+  font-size: 12px;
+  line-height: 140%;
+  font-weight: 400;
+}
+
+.body-s-bold {
+  font-size: 12px;
+  line-height: 140%;
+  font-weight: 700;
+}
+
+.resources-link {
+  font-size: 14px;
+  line-height: 100%;
+  font-weight: 600;
+}
+
+@media (max-width: 360px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  .sub-title {
+    font-size: 16px;
+    line-height: 140%;
+    font-weight: 400;
+  }
+}

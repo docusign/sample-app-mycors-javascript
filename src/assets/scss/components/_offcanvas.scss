@@ -1,0 +1,29 @@
+.offcanvas-header {
+  justify-content: end;
+}
+
+.btn-offcanvas {
+  width: 204px;
+  transform: rotate(-90deg);
+  position: absolute;
+  top: 255px;
+  right: -75px;
+}
+
+.offcanvas.offcanvas-end {
+  max-width: 95%;
+  min-width: 70%;
+  height: 100%;
+}
+
+@media (max-width: 360px) {
+  .offcanvas.offcanvas-end {
+    min-width: 90%;
+  }
+
+  .bs-offcanvas-title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+  }
+}

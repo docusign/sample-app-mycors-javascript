@@ -1,0 +1,96 @@
+{
+  "name": "sample-app-mycors-javascript",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.4.0",
+    "bootstrap": "^5.3.0",
+    "classnames": "^2.3.2",
+    "cropperjs": "^1.5.13",
+    "debounce": "^1.2.1",
+    "html-react-parser": "^4.2.0",
+    "html2canvas": "^1.4.1",
+    "i18next": "^23.2.11",
+    "i18next-http-backend": "^2.2.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.8.0",
+    "react-cropper": "^2.3.3",
+    "react-dom": "^18.2.0",
+    "react-html5-camera-photo": "^1.5.11",
+    "react-i18next": "^13.0.2",
+    "react-router-dom": "^6.14.2",
+    "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.3",
+    "sass": "^1.64.0",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint ."
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "airbnb",
+      "plugin:jsx-a11y/recommended",
+      "prettier"
+    ],
+    "plugins": [
+      "jsx-a11y",
+      "prettier"
+    ],
+    "rules": {
+      "semi": 0,
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ],
+      "max-len": [
+        "error",
+        {
+          "code": 120
+        }
+      ],
+      "import/prefer-default-export": "off",
+      "react-hooks/exhaustive-deps": "off",
+      "react/function-component-definition": [
+        "error",
+        {
+          "namedComponents": "arrow-function",
+          "unnamedComponents": "arrow-function"
+        }
+      ]
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.2"
+  }
+}

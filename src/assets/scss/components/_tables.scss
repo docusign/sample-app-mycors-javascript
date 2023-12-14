@@ -1,0 +1,61 @@
+table.table {
+  margin-bottom: 12px;
+
+  thead {
+    border-bottom: #353b44 solid 1px;
+
+    th {
+      color: #9a9da1;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 120%;
+    }
+  }
+
+  tbody {
+    tr {
+      cursor: pointer;
+      height: 51px;
+      vertical-align: middle;
+
+      &:hover td {
+        background-color: #e6eeff !important;
+      }
+
+      td {
+        color: #020a15;
+
+        &:not(:first-child) {
+          color: #676c73;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 360px) {
+    thead {
+      .th-email {
+        display: none;
+      }
+    }
+
+    tbody {
+      .td-name,
+      .td-email {
+        display: block;
+      }
+
+      .td-name {
+        border-bottom: none;
+        padding-top: 16px;
+        padding-bottom: 2px;
+      }
+
+      .td-email {
+        padding-top: 2px;
+        padding-bottom: 16px;
+      }
+    }
+  }
+}
