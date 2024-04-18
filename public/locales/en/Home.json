@@ -1,8 +1,8 @@
 {
     "Header1": "Welcome to MyCORS",
-    "Header2": "<div><span>See how DocuSign API support for Cross-Origin Resource Sharing (CORS) enables developers to build <a href='#security-notice'>single-page applications</a> that let users sign documents directly in a browser window.</span></div>",
-    "Footer1": "DocuSign: It's time to agree better",
-    "Footer2": "<div><span>DocuSign helps organizations connect and automate how they prepare, sign, act on, and manage agreements.</span></div>",
+    "Header2": "<div><span>See how Docusign API support for Cross-Origin Resource Sharing (CORS) enables developers to build <a href='#security-notice'>single-page applications</a> that let users sign documents directly in a browser window.</span></div>",
+    "Footer1": "Docusign: It's time to agree better",
+    "Footer2": "<div><span>Docusign helps organizations connect and automate how they prepare, sign, act on, and manage agreements.</span></div>",
     "LogInButton": "Log in",
     "CreateAccountButton": {
         "Name": "Create Account",
@@ -12,14 +12,14 @@
         "Title": "Send Insurance Card",
         "Description": "This scenario enables an insurance company employee to select a customer and send them an insurance card, which the customer can sign to acknowledge receipt.",
         "Button": "Get Started",
-        "FeaturesTitle": "DocuSign features:",
+        "FeaturesTitle": "Docusign features:",
         "FeaturesList": "<li>Remote signing</li><li>Data entry tabs</li><li>Anchor positioning</li><li>Templates</li><li>Document generation</li>"
     },
     "Card2": {
         "Title": "Know Your Customer",
         "Description": "For the finance industry: this scenario walks users through a wizard that enables them to take a photo and upload it for identification; they are then prompted to sign and verify the photo.",
         "Button": "Get Started",
-        "FeaturesTitle": "DocuSign features:",
+        "FeaturesTitle": "Docusign features:",
         "FeaturesList": "<li>Embedded signing</li><li>Data entry tabs</li><li>Anchor positioning</li>"
     },
     "LearnMoreButton": {
@@ -48,7 +48,7 @@
     "SecurityNotice": "<p><strong>Security notice:</strong> Single-page applications, because they execute entirely within the user's web browser, cannot store a client secret and must use <a href='https://developers.docusign.com/platform/auth/implicit/' target='_blank' rel='noopener noreferrer'>Implicit Grant</a> authentication. For more guidance on securing your apps, see <a href='https://developers.docusign.com/platform/single-page-applications-cors/' target='_blank' rel='noopener noreferrer'>Single-page applications and CORS</a>.</p>",
     "Modal": {
         "Title": "Waiting for login",
-        "Description": "You must log in with your DocuSign developer account to use this sample app."
+        "Description": "You must log in with your Docusign developer account to use this sample app."
     },
-    "LogoutModalMessage": "You are now logged out of MyCORS. Be sure to log out of your DocuSign developer account as well."
+    "LogoutModalMessage": "You are now logged out of MyCORS. Be sure to log out of your Docusign developer account as well."
 }

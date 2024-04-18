@@ -2,19 +2,19 @@
 
 ## Introduction
 
-MyCORS is a DocuSign sample application that shows how to construct Single Page Applications (SPAs) that leverage DocuSign support for Cross-Origin Resource Sharing (CORS). This sample application is created using React.js. You can find a live instance running at [https://mycors.sampleapps.docusign.com/](https://mycors.sampleapps.docusign.com/).
+MyCORS is a Docusign sample application that shows how to construct Single Page Applications (SPAs) that leverage Docusign support for Cross-Origin Resource Sharing (CORS). This sample application is created using React.js. You can find a live instance running at [https://mycors.sampleapps.docusign.com/](https://mycors.sampleapps.docusign.com/).
 
 MyCORS demonstrates the following:
 
-1. **Authentication** with DocuSign via [Implicit Grant](https://developers.docusign.com/platform/auth/implicit/).
+1. **Authentication** with Docusign via [Implicit Grant](https://developers.docusign.com/platform/auth/implicit/).
 2. **Send Insurance Card:**
-   This example uses the DocuSign [eSignature REST API](https://developers.docusign.com/docs/esign-rest-api/) to request a signature by email with [Document Generation](https://developers.docusign.com/docs/esign-rest-api/how-to/request-signature-email-document-generation/) using a predefined template in docx format.
+   This example uses the Docusign [eSignature REST API](https://developers.docusign.com/docs/esign-rest-api/) to request a signature by email with [Document Generation](https://developers.docusign.com/docs/esign-rest-api/how-to/request-signature-email-document-generation/) using a predefined template in docx format.
 3. **Know Your Customer:**
-   This example uses the DocuSign [eSignature REST API](https://developers.docusign.com/docs/esign-rest-api/) to request a signature through your application using [Embedded Signing](https://developers.docusign.com/docs/esign-rest-api/how-to/request-signature-in-app-embedded/).
+   This example uses the Docusign [eSignature REST API](https://developers.docusign.com/docs/esign-rest-api/) to request a signature through your application using [Embedded Signing](https://developers.docusign.com/docs/esign-rest-api/how-to/request-signature-in-app-embedded/).
 
 ## Prerequisites
 
-- Create a DocuSign [Developer Account](https://go.docusign.com/o/sandbox/).
+- Create a Docusign [Developer Account](https://go.docusign.com/o/sandbox/).
 - Create an application on the [Apps and Keys](https://admindemo.docusign.com/authenticate?goTo=appsAndKeys) page.
 - Set Authentication Method for your application to Implicit Grant. Under User Application: Is your application able to securely store a client secret, select No.
 
