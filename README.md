@@ -14,7 +14,7 @@ MyCORS demonstrates the following:
 
 ## Prerequisites
 
-- Create a Docusign [Developer Account](https://go.docusign.com/o/sandbox/).
+- Create a Docusign [Developer Account](https://www.docusign.com/developers/sandbox).
 - Create an application on the [Apps and Keys](https://admindemo.docusign.com/authenticate?goTo=appsAndKeys) page.
 - Set Authentication Method for your application to Implicit Grant. Under User Application: Is your application able to securely store a client secret, select No.
 
