@@ -6,7 +6,7 @@ import parse from "html-react-parser";
 import {
   useImplicitGrantAuth,
   needToLogin
-} from "../../hooks/useImplicitGrantAuth";
+} from "../../hooks/usePckeAuth";
 import { Card, Layout, WaitingModal, MessageModal } from "../../components";
 import { CTASection, TitleSection, ResoursesSection } from "./components";
 
