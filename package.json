@@ -15,6 +15,7 @@
     "html2canvas": "^1.4.1",
     "i18next": "^23.7.18",
     "i18next-http-backend": "^2.4.2",
+    "js-sha256": "^0.11.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.0",

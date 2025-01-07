@@ -1,5 +1,7 @@
 /* eslint-disable no-param-reassign */
+import { sha256 } from "js-sha256";
 import { getAuthToken } from "../services/accountRepository";
+
 
 const configureInterceptors = (api) => {
   // Request interceptor for API calls
@@ -10,7 +12,10 @@ const configureInterceptors = (api) => {
         "Content-Type": "application/json",
       };
       const accessTokenInfo = getAuthToken();
-      config.headers.Authorization = `Bearer ${accessTokenInfo.accessToken}`;
+
+      if (accessTokenInfo?.accessToken) {
+        config.headers.Authorization = `Bearer ${accessTokenInfo.accessToken}`;
+      }
       return config;
     },
     (error) => {
@@ -280,10 +285,28 @@ export const createEmbeddedSigningAPI = (
   };
 };
 
+export const generateCodeVerifier = () => {
+  const randomValues = new Uint8Array(32);
+  window.crypto.getRandomValues(randomValues);
+  return btoa(String.fromCharCode.apply(null, randomValues))
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/, "");
+};
+
+export const generateCodeChallenge = (codeVerifier) => {
+  const hash = sha256.arrayBuffer(codeVerifier);
+  const hashArray = Array.from(new Uint8Array(hash));
+  return btoa(String.fromCharCode.apply(null, hashArray))
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/, "");
+};
+
 export const createAuthAPI = (
   axios,
   serviceProvider,
-  implicitGrantPath,
+  authPath,
   userInfoPath,
   eSignBase,
   scopes,
@@ -292,15 +315,21 @@ export const createAuthAPI = (
 ) => {
   const api = createAPI(axios);
 
+    const codeVerifier = generateCodeVerifier();
+    const codeChallenge = generateCodeChallenge(codeVerifier);
+
   const login = async (nonce, onPopupIsBlocked) => {
     const url =
-      `${serviceProvider}${implicitGrantPath}` +
-      `?response_type=token` +
+      `${serviceProvider}${authPath}` +
+      `?response_type=code` +
       `&scope=${scopes}` +
       `&client_id=${clientId}` +
       `&redirect_uri=${returnUrl}` +
-      `&state=${nonce}`;
+      `&state=${nonce}` + 
+      `&code_challenge_method=S256` +
+      `&code_challenge=${codeChallenge}`;
     const loginWindow = window.open(url, "_blank");
+
     const newTab = loginWindow;
     if (!newTab || newTab.closed || typeof newTab.closed === "undefined") {
       // POPUP BLOCKED
@@ -310,6 +339,25 @@ export const createAuthAPI = (
     loginWindow.focus();
     return { window: loginWindow, nonce };
   };
+
+  const obtainAccessToken = async (code) => {
+    const requestData = {
+      code: `${code}`,
+      code_verifier: `${codeVerifier}`,
+      grant_type: "authorization_code",
+      client_id: `${clientId}`,
+      code_challenge_method: "S256",
+      redirect_uri: `${returnUrl}`
+  
+    };
+  
+      const response = await api.post(
+        `${serviceProvider}/oauth/token`,
+        requestData
+      );
+      
+      return response.data;
+  }
 
   const fetchUserInfo = async () => {
     const response = await api.get(`${serviceProvider}${userInfoPath}`);
@@ -323,5 +371,5 @@ export const createAuthAPI = (
     return response.data.externalAccountId;
   };
 
-  return { login, fetchUserInfo, fetchExternalAccountId };
+  return { login, fetchUserInfo, fetchExternalAccountId, obtainAccessToken };
 };
