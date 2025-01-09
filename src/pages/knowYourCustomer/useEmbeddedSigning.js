@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { initEmbeddedSigningAPI } from "../../api";
-import { createEmbeddedSigningTemplate } from "./embeddedSigningTemplate";
+import { createSigningTemplate } from "./signingTemplate";
 
 export const useEmbeddedSigning = (AccountService, onError, onSuccess) => {
   const { t } = useTranslation("EmbeddedSigningTemplate");
@@ -64,7 +64,7 @@ export const useEmbeddedSigning = (AccountService, onError, onSuccess) => {
       name: accountInfo.userName,
       photo,
     };
-    const template = createEmbeddedSigningTemplate(signer, t);
+    const template = createSigningTemplate(signer, t);
 
     try {
       signingResult.current = await api.embeddedSigning(signer, template, () =>

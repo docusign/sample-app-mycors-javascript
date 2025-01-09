@@ -49,21 +49,27 @@ export const useGenerateDocument = () => {
         process.env.REACT_APP_INSURANCE_DOCUMENT_TEMPLATE_NAME,
         process.env.REACT_APP_INSURANCE_DOCUMENT_TEMPLATE_EMAIL_SUBJECT
       );
-      const documentBase64 = await fileToBase64(
-        "documentTemplate.docx",
-        documentTemplate
-      );
+      const documentBase64 = await fileToBase64(documentTemplate);
       await api.addDocumentToTemplate(
         templateId,
         documentBase64,
         process.env.REACT_APP_INSURANCE_DOCUMENT_NAME
       );
       await api.addTabsToTemplate(templateId);
-      const envelopId = await api.createEnvelop(
+
+      const requestData = {
         templateId,
-        signerEmail,
-        signerName
-      );
+        templateRoles: [
+          {
+            email: signerEmail,
+            name: signerName,
+            roleName: "signer",
+          },
+        ],
+        status: "created",
+      };
+
+      const envelopId = await api.createEnvelop(requestData);
       const documentId = await api.getDocumentId(envelopId);
       await api.updateFormFields(documentId, envelopId, insuranceID, insured);
       await api.sendEnvelop(envelopId);

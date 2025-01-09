@@ -121,18 +121,7 @@ export const createDocumentAPI = (
     return response.status;
   };
 
-  const createEnvelop = async (templateId, signerEmail, signerName) => {
-    const requestData = {
-      templateId,
-      templateRoles: [
-        {
-          email: signerEmail,
-          name: signerName,
-          roleName: "signer",
-        },
-      ],
-      status: "created",
-    };
+  const createEnvelope = async (requestData) => {
     const response = await api.post(
       `${accountBaseUrl}${eSignBase}/accounts/${accountId}/envelopes`,
       requestData
@@ -194,10 +183,10 @@ export const createDocumentAPI = (
     createTemplate,
     addDocumentToTemplate,
     addTabsToTemplate,
-    createEnvelop,
+    createEnvelope,
     getDocumentId,
     updateFormFields,
-    sendEnvelop,
+    sendEnvelop
   };
 };
 
@@ -265,6 +254,23 @@ export const createEmbeddedSigningAPI = (
     return response.data.url;
   };
 
+  const embeddedSigningCeremony1 = async (envelopeId, requestData) => {
+    // const requestData = {
+    //   returnUrl: dsReturnUrl,
+    //   authenticationMethod: "None",
+    //   clientUserId: 1000,
+    //   email: signer.email,
+    //   userName: signer.name,
+    // };
+
+    const response = await api.post(
+      `${accountBaseUrl}${eSignBase}/accounts/${accountId}/envelopes/${envelopeId}/views/recipient`,
+      requestData
+    );
+
+    return response.data.url;
+  };
+
   const embeddedSigning = async (signer, template, onPopupIsBlocked) => {
     const envelopeId = await createEnvelope(template, signer);
     const url = await embeddedSigningCeremony(envelopeId, signer);
@@ -282,6 +288,8 @@ export const createEmbeddedSigningAPI = (
 
   return {
     embeddedSigning,
+    embeddedSigningCeremony,
+    embeddedSigningCeremony1
   };
 };
 

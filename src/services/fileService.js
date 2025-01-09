@@ -1,5 +1,5 @@
 // Convert file to base64 string
-export const fileToBase64 = async (filename, filepath) => {
+export const fileToBase64 = async (filepath) => {
   const response = await fetch(filepath);
   const fileBlob = await response.blob();
   const reader = new FileReader();

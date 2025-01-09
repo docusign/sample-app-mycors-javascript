@@ -52,7 +52,7 @@ const styles = {
   },
 };
 
-export const createEmbeddedSigningTemplate = (signer, t) =>
+export const createSigningTemplate = (signer, t) =>
   renderToString(
     <html lang="en">
       <head>
