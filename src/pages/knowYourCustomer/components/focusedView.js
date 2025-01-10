@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { initFocusedViewAPI } from "../../../api";
 import * as accountRepository from "../../../services/accountRepository";
 import { createSigningTemplate } from "../signingTemplate";
+import { WaitingModal } from "../../../components";
 
 const createEnvelope = async (envelopeDefinition) => {
   const accountInfo = accountRepository.getAccountInfo();
@@ -18,7 +19,7 @@ const createRecipientView = async (envelopeId, requestData) => {
   return recipientView;
 };
 
-const createEnvelopDefinition = async (signerEmail, signerName, signerClientId, userPhoto, t) => {
+const createEnvelopeDefinition = async (signerEmail, signerName, signerClientId, userPhoto, t) => {
 
   const template = createSigningTemplate({name: signerName, email: signerEmail, photo: userPhoto}, t);
   const document = {
@@ -55,7 +56,7 @@ const createEnvelopDefinition = async (signerEmail, signerName, signerClientId, 
 };
 
 const createRecipientViewDefinition = (dsReturnUrl, signerEmail, signerName, signerClientId, dsPingUrl) => ({
-  returnUrl: `${dsReturnUrl}/know-your-customer?state=123`,
+  returnUrl: `${dsReturnUrl}`,
   authenticationMethod: "none",
   email: signerEmail,
   userName: signerName,
@@ -68,16 +69,19 @@ const createRecipientViewDefinition = (dsReturnUrl, signerEmail, signerName, sig
 
 export const FocusedView = (args) => {
 
-  const { t } = useTranslation("EmbeddedSigningTemplate");
+  const { t } = useTranslation("KnowYourCustomer");
+  
+  const [showWaitingModal, setWaitingModal] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { photo } = args;
+        setWaitingModal(true);
 
         const accountInfo = accountRepository.getAccountInfo();
 
-        const envelope = await createEnvelopDefinition(accountInfo.userEmail, accountInfo.userName, 1000, photo, t);
+        const envelope = await createEnvelopeDefinition(accountInfo.userEmail, accountInfo.userName, 1000, photo, t);
 
         const originEnvelopeId = await createEnvelope(envelope);
 
@@ -108,17 +112,13 @@ export const FocusedView = (args) => {
             },
           },
         });
-        
-        signing.on("ready", () => {
-          console.log("UI is rendered");
-        });
 
-        signing.on("sessionEnd", (event) => {
+        signing.on("sessionEnd", () => {
           window.location.reload();
-          console.log("Session ended:", event);
         });
 
         signing.mount("#agreement");
+        setWaitingModal(false);
       } catch (error) {
         console.error("Error fetching recipient view:", error);
       }
@@ -129,6 +129,12 @@ export const FocusedView = (args) => {
 
   return (
     <div>
+      <WaitingModal
+        show={showWaitingModal}
+        onHide={() => showWaitingModal(false)}
+        title={t("WaitingModal.Title")}
+        description={t("WaitingModal.Description")}
+      />
       <h2>Signing</h2>
       <div
         id="agreement"

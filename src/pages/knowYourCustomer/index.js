@@ -119,12 +119,6 @@ const KnowYourCustomer = () => {
                 setLastStep(true);
               }}
             />
-            {/* <WaitingModal
-              show={showWaitingModal}
-              onHide={() => showWaitingModal(false)}
-              title={t("WaitingModal.Title")}
-              description={t("WaitingModal.Description")}
-            /> */}
             <ErrorModal
               show={showErrorModal}
               onHide={() => setShowErrorModal(false)}
