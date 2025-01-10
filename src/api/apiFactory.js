@@ -121,14 +121,6 @@ export const createDocumentAPI = (
     return response.status;
   };
 
-  const createEnvelope = async (requestData) => {
-    const response = await api.post(
-      `${accountBaseUrl}${eSignBase}/accounts/${accountId}/envelopes`,
-      requestData
-    );
-    return response.data.envelopeId;
-  };
-
   const getDocumentId = async (envelopeId) => {
     const response = await api.get(
       `${accountBaseUrl}${eSignBase}/accounts/${accountId}/envelopes/${envelopeId}/docGenFormFields`
@@ -190,7 +182,7 @@ export const createDocumentAPI = (
   };
 };
 
-export const createEmbeddedSigningAPI = (
+export const createFocusedViewAPI = (
   axios,
   eSignBase,
   dsReturnUrl,
@@ -199,37 +191,7 @@ export const createEmbeddedSigningAPI = (
 ) => {
   const api = createAPI(axios);
 
-  const createEnvelope = async (htmlDoc, signer) => {
-    const requestData = {
-      emailSubject:
-        process.env.REACT_APP_EMBEDDED_DOCUMENT_TEMPLATE_EMAIL_SUBJECT,
-      description: process.env.REACT_APP_EMBEDDED_DOCUMENT_TEMPLATE_DESCRIPTION,
-      name: process.env.REACT_APP_EMBEDDED_DOCUMENT_TEMPLATE_NAME,
-      shared: false,
-      status: "sent",
-      recipients: {
-        signers: [
-          {
-            email: signer.email,
-            name: signer.name,
-            recipientId: "1",
-            clientUserId: 1000,
-            roleName: "signer",
-            routingOrder: "1",
-          },
-        ],
-      },
-      documents: [
-        {
-          name: process.env.REACT_APP_EMBEDDED_DOCUMENT_NAME,
-          documentId: 1,
-          htmlDefinition: {
-            source: htmlDoc,
-          },
-        },
-      ],
-    };
-
+  const createEnvelope = async (requestData) => {
     const response = await api.post(
       `${accountBaseUrl}${eSignBase}/accounts/${accountId}/envelopes`,
       requestData
@@ -237,59 +199,19 @@ export const createEmbeddedSigningAPI = (
     return response.data.envelopeId;
   };
 
-  const embeddedSigningCeremony = async (envelopeId, signer) => {
-    const requestData = {
-      returnUrl: dsReturnUrl,
-      authenticationMethod: "None",
-      clientUserId: 1000,
-      email: signer.email,
-      userName: signer.name,
-    };
 
+  const getRecipientView = async (envelopeId, requestData) => {
     const response = await api.post(
       `${accountBaseUrl}${eSignBase}/accounts/${accountId}/envelopes/${envelopeId}/views/recipient`,
       requestData
     );
 
     return response.data.url;
-  };
-
-  const embeddedSigningCeremony1 = async (envelopeId, requestData) => {
-    // const requestData = {
-    //   returnUrl: dsReturnUrl,
-    //   authenticationMethod: "None",
-    //   clientUserId: 1000,
-    //   email: signer.email,
-    //   userName: signer.name,
-    // };
-
-    const response = await api.post(
-      `${accountBaseUrl}${eSignBase}/accounts/${accountId}/envelopes/${envelopeId}/views/recipient`,
-      requestData
-    );
-
-    return response.data.url;
-  };
-
-  const embeddedSigning = async (signer, template, onPopupIsBlocked) => {
-    const envelopeId = await createEnvelope(template, signer);
-    const url = await embeddedSigningCeremony(envelopeId, signer);
-
-    const signingWindow = window.open(url, "_blank");
-    const newTab = signingWindow;
-    if (!newTab || newTab.closed || typeof newTab.closed === "undefined") {
-      // POPUP BLOCKED
-      onPopupIsBlocked();
-      return false;
-    }
-    signingWindow.focus();
-    return signingWindow;
   };
 
   return {
-    embeddedSigning,
-    embeddedSigningCeremony,
-    embeddedSigningCeremony1
+    getRecipientView,
+    createEnvelope
   };
 };
 

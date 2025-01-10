@@ -1,20 +1,20 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { initDocumentAPI, initEmbeddedSigningAPI } from "../../../api";
+import { initFocusedViewAPI } from "../../../api";
 import * as accountRepository from "../../../services/accountRepository";
 import { createSigningTemplate } from "../signingTemplate";
 
 const createEnvelope = async (envelopeDefinition) => {
   const accountInfo = accountRepository.getAccountInfo();
-  const api = initDocumentAPI(accountInfo.accountBaseUrl, accountInfo.accountId);
+  const api = initFocusedViewAPI(accountInfo.accountBaseUrl, accountInfo.accountId);
   const envelopeId = await api.createEnvelope(envelopeDefinition);
   return envelopeId;
 };
 
 const createRecipientView = async (envelopeId, requestData) => {
   const accountInfo = accountRepository.getAccountInfo();
-  const api = initEmbeddedSigningAPI(accountInfo.accountBaseUrl, accountInfo.accountId);
-  const recipientView = await api.embeddedSigningCeremony1(envelopeId, requestData);
+  const api = initFocusedViewAPI(accountInfo.accountBaseUrl, accountInfo.accountId);
+  const recipientView = await api.getRecipientView(envelopeId, requestData);
   return recipientView;
 };
 
@@ -66,8 +66,6 @@ const createRecipientViewDefinition = (dsReturnUrl, signerEmail, signerName, sig
   messageOrigins: ['https://apps-d.docusign.com'],
 });
 
-
-// Main Component
 export const FocusedView = (args) => {
 
   const { t } = useTranslation("EmbeddedSigningTemplate");
@@ -79,13 +77,10 @@ export const FocusedView = (args) => {
 
         const accountInfo = accountRepository.getAccountInfo();
 
-        // Create the envelope definition
         const envelope = await createEnvelopDefinition(accountInfo.userEmail, accountInfo.userName, 1000, photo, t);
 
-        // Create the envelope
         const originEnvelopeId = await createEnvelope(envelope);
 
-        // Create the recipient view definition
         const recipientViewDefinition = createRecipientViewDefinition(
           window.location.origin,
           accountInfo.userEmail,
@@ -94,12 +89,8 @@ export const FocusedView = (args) => {
           window.location.origin
         );
 
-        // Create the recipient view
         const recipientViewUrl = await createRecipientView(originEnvelopeId, recipientViewDefinition);
 
-        const wdf = process.env.REACT_APP_OAUTH_CLIENT_ID;
-        console.log(wdf);
-        // Initialize DocuSign SDK and mount the signing view
         const docusign = await window.DocuSign.loadDocuSign(process.env.REACT_APP_OAUTH_CLIENT_ID);
         const signing = docusign.signing({
           url: recipientViewUrl,
@@ -112,12 +103,12 @@ export const FocusedView = (args) => {
               },
             },
             signingNavigationButton: {
-              finishText: "You have finished the document! Hooray!",
+              finishText: "You have finished the document! Continue!",
               position: "bottom-center",
             },
           },
         });
-        console.log(navigator.geolocation);
+        
         signing.on("ready", () => {
           console.log("UI is rendered");
         });
