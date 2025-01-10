@@ -66,24 +66,30 @@ export const useImplicitGrantAuth = (onError, onSuccess) => {
     userEmail: userInfo.email,
   });
 
-  const parseHash = (hash) => {
-    const items = hash.split(/=|&/);
+  const parseSearch = (search) => {
+    const queryString = search.startsWith('?') ? search.slice(1) : search;
+    const items = queryString.split(/=|&/);
+  
     let i = 0;
     const response = {};
+  
     while (i + 1 < items.length) {
-      response[items[i]] = items[i + 1];
+      response[decodeURIComponent(items[i])] = decodeURIComponent(items[i + 1]);
       i += 2;
     }
+  
     return response;
   };
+  
 
-  const handleMessage = async (data) => {
-    // close the browser tab used for OAuth
+  const handleMessage = async () => {
     if (loginResult.current.window) {
       loginResult.current.window.close();
     }
-    const hash = data.hash.substring(1); // remove the #
-    const response = parseHash(hash);
+    
+    const response = parseSearch(loginResult.current.window.location.search);
+
+    const obtainAccessTokenResponse = await authenticationAPI.obtainAccessToken(response.code);
 
     const newState = response.state;
     if (newState !== loginResult.current.nonce) {
@@ -93,8 +99,9 @@ export const useImplicitGrantAuth = (onError, onSuccess) => {
       });
       return;
     }
+
     const accessTokenInfo = {
-      accessToken: response.access_token,
+      accessToken: obtainAccessTokenResponse.access_token,
       accessTokenExpires: new Date(Date.now() + response.expires_in * 1000),
     };
     accountRepository.setAuthToken(accessTokenInfo);

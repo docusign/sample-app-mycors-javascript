@@ -5,7 +5,7 @@ import { Navbar } from "react-bootstrap";
 import PropTypes from "prop-types";
 import logo from "../assets/img/logo.svg";
 import * as accountRepository from "../services/accountRepository";
-import { logout } from "../hooks/useImplicitGrantAuth";
+import { logout } from "../hooks/usePckeAuth";
 import useBreakpoint, { SIZE_MD, SIZE_SM } from "../hooks/useBreakpoint";
 import whiteToggleIcon from "../assets/img/white-links.png";
 import blackToggleIcon from "../assets/img/black-links.png";

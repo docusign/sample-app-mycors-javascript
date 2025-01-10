@@ -52,7 +52,7 @@ const styles = {
   },
 };
 
-export const createEmbeddedSigningTemplate = (signer, t) =>
+export const createSigningTemplate = (signer, t) =>
   renderToString(
     <html lang="en">
       <head>
@@ -65,12 +65,12 @@ export const createEmbeddedSigningTemplate = (signer, t) =>
             <img alt="Signer" style={styles.image} src={signer.photo} />
           </div>
           <div>
-            <h2 style={styles.h2}>{t("Title")}</h2>
+            <h2 style={styles.h2}>{t("FocusedView.Title")}</h2>
             <form style={styles.form}>
               <div className="row" style={styles.row}>
                 <div>
                   <label htmlFor="full-name" style={styles.label}>
-                    {t("FullName")}
+                    {t("FocusedView.FullName")}
                   </label>
                   <input
                     data-ds-type="text"
@@ -89,7 +89,7 @@ export const createEmbeddedSigningTemplate = (signer, t) =>
               <div className="row" style={styles.row}>
                 <div>
                   <label htmlFor="address" style={styles.label}>
-                    {t("StreetAddress")}
+                    {t("FocusedView.StreetAddress")}
                   </label>
                   <input
                     data-ds-type="text"
@@ -104,7 +104,7 @@ export const createEmbeddedSigningTemplate = (signer, t) =>
               <div className="row" style={styles.row}>
                 <div>
                   <label htmlFor="city" style={styles.label}>
-                    {t("City")}
+                    {t("FocusedView.City")}
                   </label>
                   <input
                     data-ds-type="text"
@@ -117,7 +117,7 @@ export const createEmbeddedSigningTemplate = (signer, t) =>
                 </div>
                 <div style={styles.marginInput}>
                   <label htmlFor="state" style={styles.label}>
-                    {t("State")}
+                    {t("FocusedView.State")}
                   </label>
                   <input
                     data-ds-type="text"
@@ -130,7 +130,7 @@ export const createEmbeddedSigningTemplate = (signer, t) =>
                 </div>
                 <div style={styles.marginInput}>
                   <label htmlFor="postalCode" style={styles.label}>
-                    {t("ZipCode")}
+                    {t("FocusedView.ZipCode")}
                   </label>
                   <input
                     data-ds-type="text"
@@ -145,7 +145,7 @@ export const createEmbeddedSigningTemplate = (signer, t) =>
               <div className="row" style={styles.row}>
                 <div>
                   <label htmlFor="phone" style={styles.label}>
-                    {t("Phone")}
+                    {t("FocusedView.Phone")}
                   </label>
                   <input
                     data-ds-type="text"
@@ -158,7 +158,7 @@ export const createEmbeddedSigningTemplate = (signer, t) =>
                 </div>
                 <div style={styles.marginInput}>
                   <label htmlFor="email" style={styles.label}>
-                    {t("Email")}
+                    {t("FocusedView.Email")}
                   </label>
                   <input
                     data-ds-type="text"

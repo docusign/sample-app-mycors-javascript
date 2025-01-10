@@ -44,5 +44,15 @@
     "WarningModal": {
         "Title": "Alert: Camera not found",
         "Description": "It appears your device doesn’t have a camera! For demonstration purposes, we’ll provide a generic image."
+    },
+    "FocusedView": {
+        "Title": "Enter your personal information:",
+        "FullName": "Full name:",
+        "StreetAddress": "Street address:",
+        "City": "City:",
+        "State": "State:",
+        "ZipCode": "Zip code:",
+        "Phone": "Phone:",
+        "Email": "Email:"
     }
 }

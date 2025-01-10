@@ -2,7 +2,7 @@ import axios from "axios";
 import {
   createAuthAPI,
   createDocumentAPI,
-  createEmbeddedSigningAPI,
+  createFocusedViewAPI,
 } from "./apiFactory";
 
 const authenticationAPI = createAuthAPI(
@@ -24,8 +24,8 @@ const initDocumentAPI = (baseAccountUrl, accountId) =>
     accountId
   );
 
-const initEmbeddedSigningAPI = (baseAccountUrl, accountId) =>
-  createEmbeddedSigningAPI(
+const initFocusedViewAPI = (baseAccountUrl, accountId) =>
+  createFocusedViewAPI(
     axios,
     process.env.REACT_APP_ESIGN_BASE,
     process.env.REACT_APP_DS_RETURN_URL,
@@ -33,4 +33,4 @@ const initEmbeddedSigningAPI = (baseAccountUrl, accountId) =>
     accountId
   );
 
-export { authenticationAPI, initDocumentAPI, initEmbeddedSigningAPI };
+export { authenticationAPI, initDocumentAPI, initFocusedViewAPI };

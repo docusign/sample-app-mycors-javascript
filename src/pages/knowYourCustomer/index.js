@@ -4,14 +4,10 @@ import { useTranslation } from "react-i18next";
 import {
   SeeMore,
   Layout,
-  WaitingModal,
   ErrorModal,
   MessageModal,
 } from "../../components";
-import { CustomerInformation, PhotoModal, StepDescription } from "./components";
-import { useEmbeddedSigning } from "./useEmbeddedSigning";
-import * as accountRepository from "../../services/accountRepository";
-import { fileToBase64 } from "../../services/fileService";
+import { CustomerInformation, FocusedView, PhotoModal, StepDescription } from "./components";
 import success from "../../assets/img/success.svg";
 import warning from "../../assets/img/warning.svg";
 import templatePhoto from "../../assets/img/templatePhoto.png";
@@ -25,39 +21,15 @@ const KnowYourCustomer = () => {
   const [photo, setPhoto] = useState("");
   const [simpleFlow, setSimpleFlow] = useState(false);
   const [lastStep, setLastStep] = useState(false);
-  const [error, setError] = useState({ title: "", description: "" });
+  const [showFocusedView, setShowFocusedView] = useState(false);
+  const [error] = useState({ title: "", description: "" });
   const [showModal, setShowModal] = useState(false);
-  const [showWaitingModal, setWaitingModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showWarningModal, setShowWarningModal] = useState(false);
 
-  const [embeddedSigning, inProgress] = useEmbeddedSigning(
-    accountRepository,
-    (err) => {
-      setError(err);
-      setShowErrorModal(true);
-    },
-    () => {
-      setLastStep(false);
-      setPhoto("");
-      setShowSuccessModal(true);
-    }
-  );
-
-  useEffect(() => {
-    if (inProgress) {
-      setWaitingModal(true);
-    } else {
-      setWaitingModal(false);
-    }
-  }, [inProgress]);
-
   const handleSigning = async () => {
-    const signerPhoto =
-      photo ||
-      `data:image/png;base64, ${await fileToBase64("Photo.png", defaultPhoto)}`;
-    await embeddedSigning(signerPhoto);
+    setShowFocusedView(true);
   };
 
   useEffect(() => {
@@ -96,7 +68,14 @@ const KnowYourCustomer = () => {
       <section className="content-section">
         <Container className="kyc-page-container">
           <Row className="justify-content-center">
+          {showFocusedView ? (
             <div className="form-holder">
+             <FocusedView
+             photo={photo}
+             />
+            </div>
+        ) :
+            (<div className="form-holder">
               {lastStep ? (
                 <CustomerInformation
                   photo={photo}
@@ -120,6 +99,7 @@ const KnowYourCustomer = () => {
                 />
               )}
             </div>
+            )}
             <SeeMore title={t("SeeMore.Title")} text={t("SeeMore.Text")} />
             <MessageModal
               show={showWarningModal}
@@ -138,12 +118,6 @@ const KnowYourCustomer = () => {
                 setShowModal(false);
                 setLastStep(true);
               }}
-            />
-            <WaitingModal
-              show={showWaitingModal}
-              onHide={() => showWaitingModal(false)}
-              title={t("WaitingModal.Title")}
-              description={t("WaitingModal.Description")}
             />
             <ErrorModal
               show={showErrorModal}
