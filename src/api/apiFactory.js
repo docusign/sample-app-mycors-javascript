@@ -175,7 +175,6 @@ export const createDocumentAPI = (
     createTemplate,
     addDocumentToTemplate,
     addTabsToTemplate,
-    createEnvelope,
     getDocumentId,
     updateFormFields,
     sendEnvelop
