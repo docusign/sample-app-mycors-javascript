@@ -1,6 +1,6 @@
 {
-  "short_name": "MyCORS",
-  "name": "MyCORS Sample App",
+  "short_name": "CORS",
+  "name": "CORS Sample App",
   "icons": [
     {
       "src": "favicon.png",
