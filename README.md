@@ -1,10 +1,10 @@
-# MyCORS Sample Application: React
+# CORS Sample Application: React
 
 ## Introduction
 
-MyCORS is a Docusign sample application that shows how to construct Single Page Applications (SPAs) that leverage Docusign support for Cross-Origin Resource Sharing (CORS). This sample application is created using React.js. You can find a live instance running at [https://mycors.sampleapps.docusign.com/](https://mycors.sampleapps.docusign.com/).
+The CORS Sample App is a Docusign sample application that shows how to construct Single Page Applications (SPAs) that leverage Docusign support for Cross-Origin Resource Sharing (CORS). This sample application is created using React.js. You can find a live instance running at [https://cors.sampleapps.docusign.com/](https://cors.sampleapps.docusign.com/).
 
-MyCORS demonstrates the following:
+The CORS Sample App demonstrates the following:
 
 1. **Authentication** with Docusign via [Implicit Grant](https://developers.docusign.com/platform/auth/implicit/).
 2. **Send Insurance Card:**

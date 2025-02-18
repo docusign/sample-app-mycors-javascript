@@ -1,8 +1,8 @@
 {
-    "Header1": "Welcome to MyCORS",
+    "Header1": "Welcome to the CORS Sample App",
     "Header2": "<div><span>See how Docusign API support for Cross-Origin Resource Sharing (CORS) enables developers to build <a href='#security-notice'>single-page applications</a> that let users sign documents directly in a browser window.</span></div>",
-    "Footer1": "Docusign: It's time to agree better",
-    "Footer2": "<div><span>Docusign helps organizations connect and automate how they prepare, sign, act on, and manage agreements.</span></div>",
+    "Footer1": " ",
+    "Footer2": " ",
     "LogInButton": "Log in",
     "CreateAccountButton": {
         "Name": "Create Account",
@@ -50,5 +50,5 @@
         "Title": "Waiting for login",
         "Description": "You must log in with your Docusign developer account to use this sample app."
     },
-    "LogoutModalMessage": "You are now logged out of MyCORS. Be sure to log out of your Docusign developer account as well."
+    "LogoutModalMessage": "You are now logged out of the CORS Sample App. Be sure to log out of your Docusign developer account as well."
 }
